@@ -1,4 +1,6 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Player} from "../../players/entities/player.entity";
+import {Tournament} from "../../tournaments/entities/tournament.entity";
 
 @Entity()
 export class Game {
@@ -12,4 +14,8 @@ export class Game {
     genero: string;
     @Column()
     calificacion: number;
+    @OneToMany(type => Player, player => player.game)
+    players: Player[];
+    @OneToMany(type => Tournament, tournament => tournament.game)
+    tournaments: Tournament[];
 }

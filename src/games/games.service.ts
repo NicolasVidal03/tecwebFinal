@@ -15,11 +15,11 @@ export class GamesService {
   }
 
   findAll() {
-    return this.gameRepository.find();
+    return this.gameRepository.find( {relations: { players: true, tournaments: true }} );
   }
 
   findOne(id: number) {
-    return this.gameRepository.findOneBy({id});
+    return this.gameRepository.findOne({ where:{id}, relations:{ players:true, tournaments:true } });
   }
 
   update(id: number, updateGameDto: UpdateGameDto) {

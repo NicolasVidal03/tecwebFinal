@@ -15,11 +15,11 @@ export class TournamentsService {
   }
 
   findAll() {
-    return this.tournamentRepository.find();
+    return this.tournamentRepository.find({ relations:{game: true} }  );
   }
 
   findOne(id: number) {
-    return this.tournamentRepository.findOneBy({id});
+    return this.tournamentRepository.findOne({ where:{id}, relations:{game: true} });
   }
 
   update(id: number, updateTournamentDto: UpdateTournamentDto) {

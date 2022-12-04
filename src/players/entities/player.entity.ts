@@ -1,5 +1,6 @@
-import {Column, Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, ManyToOne, PrimaryGeneratedColumn, JoinColumn} from "typeorm";
 import {Game} from "../../games/entities/game.entity";
+
 
 @Entity()
 export class Player {
@@ -11,6 +12,6 @@ export class Player {
     edad: number;
     @Column()
     sueldo: number;
-    @ManyToOne(type => Game, game => game.titulo)
-    juego: number;
+    @ManyToOne(type => Game, (game) => game.players)
+    game: Game;
 }

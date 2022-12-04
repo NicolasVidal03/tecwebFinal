@@ -15,6 +15,6 @@ export class Tournament {
     fecha: number;
     @Column()
     fechaFin: number;
-    @ManyToOne(type => Game, game => game.titulo)
-    juegoTour: number;
+    @ManyToOne(type => Game, game => game.tournaments)
+    game: Game;
 }
