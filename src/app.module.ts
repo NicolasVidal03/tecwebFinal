@@ -5,6 +5,8 @@ import { GamesModule } from './games/games.module';
 import {TypeOrmModule} from "@nestjs/typeorm";
 import { PlayersModule } from './players/players.module';
 import { TournamentsModule } from './tournaments/tournaments.module';
+import { UsuarioModule } from './usuario/usuario.module';
+import { RolModule } from './rol/rol.module';
 
 @Module({
   imports: [GamesModule,
@@ -19,7 +21,9 @@ import { TournamentsModule } from './tournaments/tournaments.module';
       autoLoadEntities: true
     }),
     PlayersModule,
-    TournamentsModule],
+    TournamentsModule,
+    UsuarioModule,
+    RolModule],
   controllers: [AppController],
   providers: [AppService],
 })
