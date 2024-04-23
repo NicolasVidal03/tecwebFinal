@@ -7,6 +7,7 @@ import { PlayersModule } from './players/players.module';
 import { TournamentsModule } from './tournaments/tournaments.module';
 import { UsuarioModule } from './usuario/usuario.module';
 import { RolModule } from './rol/rol.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [GamesModule,
@@ -23,7 +24,9 @@ import { RolModule } from './rol/rol.module';
     PlayersModule,
     TournamentsModule,
     UsuarioModule,
-    RolModule],
+    RolModule,
+    AuthModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
